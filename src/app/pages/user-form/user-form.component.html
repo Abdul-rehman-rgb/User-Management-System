@@ -1,0 +1,160 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+          <h3><i class="fas fa-user-plus"></i> Add New User</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="userform" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <!-- First Name -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label"><i class="fas fa-user"></i> First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="firstname"
+                    placeholder="Enter first name"
+                    required
+                    [class.is-invalid]="userform.controls['firstname'].invalid && userform.controls['firstname'].touched"
+                  />
+                  <div class="invalid-feedback">
+                    <span *ngIf="userform.controls['firstname'].errors?.['required']">This field is required.</span>
+                    <span *ngIf="userform.controls['firstname'].errors?.['minlength']">Min 4 characters required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Last Name -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label"><i class="fas fa-user"></i> Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="lastname"
+                    placeholder="Enter last name"
+                    required
+                    [class.is-invalid]="userform.controls['lastname'].invalid && userform.controls['lastname'].touched"
+                  />
+                  <div class="invalid-feedback">
+                    <span *ngIf="userform.controls['lastname'].errors?.['required']">This field is required.</span>
+                    <span *ngIf="userform.controls['lastname'].errors?.['minlength']">Min 4 characters required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Username -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label"><i class="fas fa-user-tag"></i> Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="username"
+                    placeholder="Enter username"
+                    required
+                  />
+                  <div class="text-danger" *ngIf="userform.controls['username'].touched && userform.controls['username'].invalid">
+                    <span *ngIf="userform.controls['username'].errors?.['required']">This field is required.</span>
+                    <span *ngIf="userform.controls['username'].errors?.['minlength']">Min 4 characters required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label"><i class="fas fa-envelope"></i> Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    formControlName="email"
+                    placeholder="Enter email"
+                    required
+                  />
+                  <div class="text-danger" *ngIf="userform.controls['email'].touched && userform.controls['email'].invalid">
+                    <span *ngIf="userform.controls['email'].errors?.['required']">This field is required.</span>
+                    <span *ngIf="userform.controls['email'].errors?.['email']">Invalid email format.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label"><i class="fas fa-phone"></i> Phone</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    formControlName="phone"
+                    placeholder="Enter phone number"
+                    required
+                  />
+                  <div class="text-danger" *ngIf="userform.controls['phone'].touched && userform.controls['phone'].invalid">
+                    <span *ngIf="userform.controls['phone'].errors?.['required']">This field is required.</span>
+                    <span *ngIf="userform.controls['phone'].errors?.['pattern']">Invalid phone format.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Role -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label"><i class="fas fa-user-shield"></i> Role</label>
+                  <select class="form-select" formControlName="role" required>
+                    <option value="">Select Role</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Moderator">Moderator</option>
+                    <option value="User">User</option>
+                  </select>
+                  <div class="text-danger" *ngIf="userform.controls['role'].touched && userform.controls['role'].errors?.['required']">
+                    Role is required.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Gender -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label"><i class="fas fa-venus-mars"></i> Gender</label><br />
+                  <div class="form-check form-check-inline">
+                    <input type="radio" formControlName="gender" value="Male" class="form-check-input" required />
+                    <label class="form-check-label">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" formControlName="gender" value="Female" class="form-check-input" required />
+                    <label class="form-check-label">Female</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Date of Birth -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label"><i class="fas fa-birthday-cake"></i> Birth Date</label>
+                  <input type="date" class="form-control" formControlName="dob" />
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  <i class="fas fa-save"></i> Save
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          <a class="btn btn-outline-secondary" [routerLink]="['/users']">
+            <i class="fas fa-arrow-left"></i> Back to List
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+s

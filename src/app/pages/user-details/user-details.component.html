@@ -1,0 +1,57 @@
+<div class="container mt-5">
+  <div class="card shadow-lg p-4">
+    <div class="card-header bg-primary text-white d-flex align-items-center">
+      <i class="fas fa-user me-2"></i>
+      <h3 class="mb-0">User Details</h3>
+    </div>
+
+    <div class="card-body">
+      <div class="text-center mb-3">
+        <span style="background-color: #7f8fa6; padding: 15px; border-radius: 30px; color: #fff; text-transform: uppercase; font-weight: bold;">{{ GetInitial(users) }}</span>
+      </div>
+
+      <div *ngIf="users">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex align-items-center">
+            <i class="fas fa-user-circle me-2 text-primary"></i>
+            <strong>First Name:</strong> <span class="ms-2">{{ users.firstname }}</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <i class="fas fa-user-circle me-2 text-secondary"></i>
+            <strong>Last Name:</strong> <span class="ms-2">{{ users.lastname }}</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <i class="fas fa-user me-2 text-success"></i>
+            <strong>Username:</strong> <span class="ms-2">{{ users.username }}</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <i class="fas fa-envelope me-2 text-warning"></i>
+            <strong>Email:</strong> <span class="ms-2">{{ users.email }}</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <i class="fas fa-phone-alt me-2 text-info"></i>
+            <strong>Phone:</strong> <span class="ms-2">{{ users.phone }}</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <i class="fas fa-user-tag me-2 text-danger"></i>
+            <strong>Role:</strong> <span class="ms-2">{{ users.role }}</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <i class="fas fa-venus-mars me-2 text-secondary"></i>
+            <strong>Gender:</strong> <span class="ms-2">{{ users.gender }}</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <i class="fas fa-birthday-cake me-2 text-purple"></i>
+            <strong>Date of Birth:</strong> <span class="ms-2">{{ users.dob }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-footer text-end">
+      <button class="btn btn-outline-primary btn-lg" [routerLink]="['/users']">
+        <i class="fas fa-arrow-left"></i> Back to List
+      </button>
+    </div>
+  </div>
+</div>
